@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import Table from 'react-bootstrap/Table';
 function Tableform() {
     const [inputdata,Setinputdata]=useState({ username:"", rollno:"" })
     const[inputarr,Setinputarr]=useState([])
@@ -19,7 +20,8 @@ console.log(inputdata)
 }
   return (
     <>
-    <div className='usr-form d-flex align-items-center justify-content-center w-50 m-auto' style={{height:"100vh"}}>
+    <br></br><br></br>
+    <div className='usr-form d-flex align-items-center justify-content-center w-50 m-auto' style={{height:"70vh"}}>
      <div className='container'>  
      <div className='row'> 
      <div className='col-md-12'>  
@@ -32,7 +34,7 @@ console.log(inputdata)
      <button  className='btn btn-danger w-100' onClick={changhandle}>Add value</button> 
      <br/>
      <br/>
-     <table border={1} width="100%" cellPadding={10} >
+     {/* <table border={2} width="100%" cellPadding={10}>
         <tbody>
       <tr>
         <td>Name</td>
@@ -51,7 +53,29 @@ console.log(inputdata)
            ) 
 } 
     </tbody>
-     </table>
+     </table> */}
+     <Table striped bordered hover>
+     
+      <tbody>
+      <tr>
+        <td>Name</td>
+        <td>Roll No</td>
+        </tr> 
+        {
+           inputarr.map(
+            (val,key)=>{
+             return(
+             <tr key={key}>
+             <td>{val.username}</td>
+             <td>{val.rollno}</td>   
+             </tr>   
+             )   
+            }
+           ) }
+       
+       
+      </tbody>
+    </Table>
     </div>
     </div>
     </div>
